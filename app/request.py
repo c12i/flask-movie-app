@@ -21,7 +21,7 @@ def get_movies(category):
         get_movies_data = url.read()
         get_movies_response = json.loads(get_movies_data)
 
-        movie_results = None
+        # movie_results = None
 
         if get_movies_response['results']:
             movie_results_list = get_movies_response['results']
@@ -62,7 +62,7 @@ def get_movie(id):
         movie_details_data = url.read()
         movie_details_response = json.loads(movie_details_data)
 
-        movie_object = None
+        # movie_object = None
         if movie_details_response:
             id = movie_details_response.get('id')
             title = movie_details_response.get('original_title')
