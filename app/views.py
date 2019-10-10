@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from app import app # import the app instance from the __init__ file in our app folder.
-from .request import get_movies, get_movie
+from .request import get_movies, get_movie, search_movie
 
 
 # Views
@@ -15,12 +15,17 @@ def index():
     now_showing_movie = get_movies('now_playing')
     message = "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."*2
     title = 'Home - Welcome to The best Movie Review Website Online'
-    return render_template('index.html', 
-                            message = message, 
-                            title = title, 
-                            popular = popular_movies,
-                            upcoming = upcoming_movie,
-                            now_showing = now_showing_movie)
+
+    search_movie = request.args.get('movie_query')
+    if search_movie:
+        return redirect(url_for('search',movie_name=search_movie))
+    else:      
+        return render_template('index.html', 
+                                message = message, 
+                                title = title, 
+                                popular = popular_movies,
+                                upcoming = upcoming_movie,
+                                now_showing = now_showing_movie)
 
 @app.route("/movie/<int:id>")
 def movie(id):
@@ -34,3 +39,16 @@ def movie(id):
                             id = id, 
                             title = title,
                             movie = movie)
+
+@app.route('/search/<movie_name>')
+def search(movie_name):
+    '''
+    View function to display the search results
+    '''
+    movie_name_list = movie_name.split(" ")
+    movie_name_format = "+".join(movie_name_list)
+    searched_movies = search_movie(movie_name_format)
+    title = f'search results for {movie_name}'
+    return render_template('search.html',
+                            title = title, 
+                            movies = searched_movies)
