@@ -4,10 +4,10 @@
     <div class="container">
         <!-- Poster background -->
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 posterPath">
                 <img src="{{movie.poster}}" alt="{{movie.title}}" class="img-responsive">
             </div>   
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 movie-details">
                 <div class="thumbnail" style="border: none">
                     <h1>{{ movie.title }}</h1>   
                     <p class="overview"> {{ movie.overview }}</p>
@@ -17,10 +17,11 @@
                 <hr>
                 {% if reviews %}
                     {{macro.displayReviews(reviews)}}
+                    <a class="btn btn-success text-center" href="/movie/review/new/{{movie.id}}"> Write a new review</a>      
                 {% else%}
                     <h3 class="text-center">This movie has no reviews </h3>
-                    <a class="btn btn-success btn-lg text-center" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
-                {% endif %}      
+                    <a class="btn btn-success text-center" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
+                {% endif %}
             </div>
         </div> 
     </div>
