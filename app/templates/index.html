@@ -7,28 +7,31 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <h1> Movies! </h1>
     <form style="display: flex;">
         <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-default">
     </form>
     <hr>
 </div>
-    <!-- Popular movie -->
+<!-- Popular movie -->
+<div class="container">
     <h3 class="text-center"> Popular Movies</h3>
     <div>
         {{ macro.displayMovieList(popular)}}
     </div>
+</div>
     <!-- Upcoming movie  -->
-    <br>
+<div class="container">
     <h3 class="text-center"> Upcoming Movies </h3>
     <div>
         {{ macro.displayMovieList(upcoming)}}
     </div>
+</div>
     <!-- Now showing movie -->
-    <br>
+<div class="container">
     <h3 class="text-center">Now Showing</h3>
     <div>
         {{ macro.displayMovieList(now_showing)}}
     </div>
+</div>
 {% endblock%}
