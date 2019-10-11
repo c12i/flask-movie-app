@@ -6,9 +6,10 @@
         <div class="container">
             <h3> Found {{ movies| count }} matches </h3>
         </div>
-        <hr>
-        <ul>
-            {{ macro.displayMovieList(movies)}}
-        </ul>
+        <div class="container">
+            <ul>
+                {{ macro.displayMovieList(movies)}}
+            </ul>
+        </div>
     </div>
 {% endblock %}
