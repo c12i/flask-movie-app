@@ -13,22 +13,22 @@
         <input type="submit"  value="Submit" class="btn btn-default">
     </form>
     <hr>
+</div>
     <!-- Popular movie -->
-    <h3> Popular Movies</h3>
-    <ul>
+    <h3 class="text-center"> Popular Movies</h3>
+    <div>
         {{ macro.displayMovieList(popular)}}
-    </ul>
+    </div>
     <!-- Upcoming movie  -->
     <br>
-    <h3> Upcoming Movies </h3>
-    <ul>
+    <h3 class="text-center"> Upcoming Movies </h3>
+    <div>
         {{ macro.displayMovieList(upcoming)}}
-    </ul>
+    </div>
     <!-- Now showing movie -->
     <br>
-    <h3>Now Showing</h3>
-    <ul>
+    <h3 class="text-center">Now Showing</h3>
+    <div>
         {{ macro.displayMovieList(now_showing)}}
-    </ul>
-</div>
+    </div>
 {% endblock%}

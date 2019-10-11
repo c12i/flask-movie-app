@@ -1,5 +1,4 @@
 from app import app
-import urllib.request #why not use the requests library
 import requests
 import json
 from .models import movie
@@ -18,11 +17,6 @@ def get_movies(category):
     '''
     get_movies_url = base_url.format(category,api_key)
     get_movies_response = requests.get(get_movies_url).json()
-    # with urllib.request.urlopen(get_movies_url) as url:
-    #     get_movies_data = url.read()
-    #     get_movies_response = json.loads(get_movies_data)
-
-    # movie_results = None
 
     if get_movies_response['results']:
         movie_results_list = get_movies_response['results']
@@ -60,11 +54,6 @@ def get_movie(id):
     get_movie_details_url = base_url.format(id,api_key)
     movie_details_response = requests.get(get_movie_details_url).json()
 
-    # with urllib.request.urlopen(get_movie_details_url) as url:
-    #     movie_details_data = url.read()
-    #     movie_details_response = json.loads(movie_details_data)
-
-    # movie_object = None
     if movie_details_response:
         id = movie_details_response.get('id')
         title = movie_details_response.get('original_title')
@@ -79,11 +68,6 @@ def get_movie(id):
 
 def search_movie(movie_name):
     search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,movie_name)
-    # with urllib.request.urlopen(search_movie_url) as url:
-    #     search_movie_data = url.read()
-    #     search_movie_response = json.loads(search_movie_data)
-
-    #     search_movie_results = None
     search_movie_response = requests.get(search_movie_url).json()
 
     if search_movie_response['results']:
@@ -91,3 +75,11 @@ def search_movie(movie_name):
         search_movie_results = process_results(search_movie_list)
 
     return search_movie_results
+
+# LEGACY
+# import urllib.request #why not use the requests library
+# with urllib.request.urlopen(get_movie_details_url) as url:
+    #     movie_details_data = url.read()
+    #     movie_details_response = json.loads(movie_details_data)
+
+    # movie_object = None

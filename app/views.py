@@ -13,15 +13,13 @@ def index():
     popular_movies = get_movies("popular")
     upcoming_movie = get_movies('upcoming')
     now_showing_movie = get_movies('now_playing')
-    message = "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."*2
     title = 'Home - Welcome to The best Movie Review Website Online'
 
     search_movie = request.args.get('movie_query')
     if search_movie:
         return redirect(url_for('search',movie_name=search_movie))
     else:      
-        return render_template('index.html', 
-                                message = message, 
+        return render_template('index.html',
                                 title = title, 
                                 popular = popular_movies,
                                 upcoming = upcoming_movie,
