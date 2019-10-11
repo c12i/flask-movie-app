@@ -41,7 +41,7 @@ def movie(id):
                             title = title,
                             movie = movie,
                             reviews = reviews)
-
+                            
 @app.route('/search/<movie_name>')
 def search(movie_name):
     '''
