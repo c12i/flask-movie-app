@@ -6,3 +6,6 @@
 /virtual
 *.pyc
 /instance
+
+# shell
+start.sh

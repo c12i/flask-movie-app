@@ -1,12 +1,11 @@
 from flask import render_template, request, redirect, url_for
-from app import app # import the app instance from the __init__ file in our app folder.
-from .request import get_movies, get_movie, search_movie
-from .models import review
+from . import main
+from ..request import get_movies, get_movie, search_movie
 from .forms import ReviewForm
-Review = review.Review
+from ..models import Review
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -19,7 +18,7 @@ def index():
 
     search_movie = request.args.get('movie_query')
     if search_movie:
-        return redirect(url_for('search',movie_name=search_movie))
+        return redirect(url_for('.search',movie_name=search_movie))
     else:      
         return render_template('index.html',
                                 title = title, 
@@ -27,7 +26,7 @@ def index():
                                 upcoming = upcoming_movie,
                                 now_showing = now_showing_movie)
 
-@app.route("/movie/<int:id>")
+@main.route("/movie/<int:id>")
 def movie(id):
 
     '''
@@ -42,7 +41,7 @@ def movie(id):
                             movie = movie,
                             reviews = reviews)
                             
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(movie_name):
     '''
     View function to display the search results
@@ -55,7 +54,7 @@ def search(movie_name):
                             title = title, 
                             movies = searched_movies)
 
-@app.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
+@main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
 def new_review(id):
     form = ReviewForm()
     movie = get_movie(id)
@@ -65,7 +64,7 @@ def new_review(id):
         review = form.review.data
         new_review = Review(movie.id,title,movie.poster,review)
         new_review.save_review()
-        return redirect(url_for('movie',id = movie.id ))
+        return redirect(url_for('.movie',id = movie.id ))
 
     title = f'{movie.title} review'
     return render_template('new_review.html',
