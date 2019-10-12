@@ -9,3 +9,7 @@
 
 # shell
 start.sh
+
+# other
+Procfile
+.idea
