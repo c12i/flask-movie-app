@@ -44,6 +44,7 @@ class User(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    pass_secure = db.Column(db.String(255))
 
     # string representaion to print out a row of a column, important in debugging
     def __repr__(self):
