@@ -1,6 +1,6 @@
 from . import db
 from werkzeug.security import (generate_password_hash,
-                                check_password_hash)
+                               check_password_hash)
 
 class Movie:
     """
@@ -68,7 +68,7 @@ class Role(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
-    users = db.relationship("User", backref = "role", lazy="dynamic")
+    users = db.relationship("User", backref = "role", lazy = "dynamic")
 
     def __repr__(self):
         return f'User {self.name}'
