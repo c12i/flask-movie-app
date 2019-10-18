@@ -7,8 +7,8 @@ from flask_login import LoginManager
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 login_manager = LoginManager()
-login_manager.session_protection = "strong"
-login_manager.login_view = "auth.login"
+login_manager.session_protection = "strong" #security level, monitor the changes in a user's request header and log the user out
+login_manager.login_view = "auth.login" #We prefix the login endpoint with the blueprint name because it is located inside a blueprint.
 
 def create_app(config_name):
     
