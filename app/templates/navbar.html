@@ -11,7 +11,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {%if current_user.is_authenticated%}
@@ -19,7 +19,7 @@
                         {{current_user.username}}
                     </li>
                 {%else%}
-                    <li><a href="{{url_for(.login)}}" style="color: #fff;">Sign In</a></li>
+                    <li><a href="{{url_for('auth.login')}}" style="color: #fff;">Sign In</a></li>
                 {%endif%}
             </ul>
         </div>
