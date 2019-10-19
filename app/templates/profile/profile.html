@@ -19,6 +19,10 @@
             {%else%}
                 <p>No profile picture</p>
             {%endif%}
+
+            {%if user == current_user%}
+                <a class="btn btn-info btn-lg" href="{{url_for('main.update_profile')}}">Edit Profile</a>
+            {%endif%}
         </div>
     </div>
 </div>
