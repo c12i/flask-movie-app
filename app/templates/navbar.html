@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
                 {%if current_user.is_authenticated%}
                     <li style="color:white;padding:15px">
-                        {{current_user.username}}
+                        <a href="{{url_for('main.profile', uname = current_user.username)}}">{{current_user.username}}</a>
                     </li>
                     <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
                 {%else%}
