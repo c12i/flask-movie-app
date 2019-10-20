@@ -57,6 +57,7 @@ class Review(db.Model):
     movie_id = db.Column(db.Integer)
     movie_title = db.Column(db.String)
     image_path = db.Column(db.String)
+    review_title = db.Column(db.String)
     movie_review = db.Column(db.String)
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))

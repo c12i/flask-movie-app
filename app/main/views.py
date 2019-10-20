@@ -69,6 +69,7 @@ def new_review(id):
         new_review = Review(movie_id = movie.id,
                             movie_title = movie.title,
                             image_path = movie.poster,
+                            review_title = title,
                             movie_review = review,
                             user = current_user)
         new_review.save_review()
