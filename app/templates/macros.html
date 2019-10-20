@@ -14,8 +14,8 @@
 {% macro displayReviews(review_list) %}
     {% for review in review_list %}
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-        <h4> {{ review.title}} </h4>
-        <p> {{ review.review | truncate(30) }}</p>
+        <!-- <h4> {{ review.movie_title}} </h4> -->
+        <p> {{ review.movie_review | truncate(30) }}</p>
     </div>
     {% endfor %}
 {% endmacro %}
