@@ -16,9 +16,6 @@ def create_app(config_name):
     
     app = Flask(__name__)
 
-    # Configure UploadSet
-    configure_uploads(app, photos)
-
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
@@ -38,5 +35,8 @@ def create_app(config_name):
     # Setting config
     from .request import configure_request
     configure_request(app)
+
+    # Configure UploadSet
+    configure_uploads(app, photos)
 
     return app
