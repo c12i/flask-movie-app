@@ -88,11 +88,14 @@ def single_review(id):
 
     if review is None:
         abort(404)
+    format_review_title = markdown2.markdown(review.review_title,
+                                            extras = ["code-friendly", "fenced-code-blocks"])
     format_review = markdown2.markdown(review.movie_review,
                                         extras = ["code-friendly", "fenced-code-blocks"])
     
     return render_template("review.html", 
                             review = review,
+                            format_review_title = format_review_title,
                             format_review = format_review)
 
 @main.route("/user/<uname>")

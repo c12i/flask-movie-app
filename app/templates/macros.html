@@ -19,8 +19,8 @@
             <p>{{review.user.username}}</p>
         </div>
         <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
-            <h2><a href="{{url_for('main.single_review, id = review.id')}}">
-                {{review.movie_title}}
+            <h2><a href="{{url_for('main.single_review', id = review.id)}}">
+                {{review.review_title}}
             </a></h2>
         </div>
     </div>

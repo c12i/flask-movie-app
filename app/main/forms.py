@@ -4,7 +4,7 @@ from wtforms.validators import Required
 
 class ReviewForm(FlaskForm):
     title = StringField('Review title',validators=[Required()])
-    review = TextAreaField('Movie review', validators=[Required()])
+    review = TextAreaField('Movie review')
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):

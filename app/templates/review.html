@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 
 {% block content%}
-<div class="container-fluid">
+<div class="container">
 
   <div class="row">
     <div class="col-sm-6">
@@ -9,8 +9,9 @@
     </div>
 
     <div class="col-sm-6">
-      {{format_review|safe}}
+        <h4>{{format_review_title | safe}}</h4>
+        <p>{{format_review| safe }}</p>
     </div>
   </div>
 </div>
-{%endblock%
+{%endblock%}

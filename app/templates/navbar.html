@@ -16,6 +16,12 @@
             <ul class="nav navbar-nav navbar-right">
                 {%if current_user.is_authenticated%}
                     <li style="color:white">
+                        {%if current_user.profile_pic_path%}
+                        <img src="{{url_for('static', filename = current_user.profile_pic_path)}}" alt="dp" style="border-radius:50%" width = "40" height="40"
+                        style="margin-top: 10px;">
+                    </li>
+                    <li>
+                        {%endif%}
                         <a href="{{url_for('main.profile', uname = current_user.username)}}">{{current_user.username}}</a>
                     </li>
                     <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
