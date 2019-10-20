@@ -25,7 +25,7 @@
 
                 <form action="{{url_for('main.update_pic', uname = user.username)}}" method="POST" enctype="multipart/form-data">
                     <input type="file" name="photo" class="form-control">
-                    <input type="submit" class="btn btn-info">
+                    <input type="submit" class="btn btn-info" value="Upload">
                 </form>
             {%endif%}
         </div>
