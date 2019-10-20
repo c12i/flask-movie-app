@@ -3,12 +3,14 @@ from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = "strong" #security level, monitor the changes in a user's request header and log the user out
 login_manager.login_view = "auth.login" #We prefix the login endpoint with the blueprint name because it is located inside a blueprint.
+photos = UploadSet("photos", IMAGES)
 
 def create_app(config_name):
     
@@ -16,6 +18,9 @@ def create_app(config_name):
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
+
+    # Configure UploadSet
+    configure_uploads(app, photos)
 
     # Initializing flask extensions
     bootstrap.init_app(app)
