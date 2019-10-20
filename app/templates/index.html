@@ -10,6 +10,9 @@
     body{
         font-family: 'Roboto', sans-serif;
     }
+    h3{
+        text-transform: uppercase;
+    }
 </style>
 <div class="container">
     <form style="display: flex;">
@@ -26,6 +29,7 @@
 </div>
     <!-- Upcoming movie  -->
 <div class="container">
+    <hr>
     <h3 class="text-center"> Upcoming Movies </h3>
     <div>
         {{ macro.displayMovieList(upcoming)}}
@@ -33,6 +37,7 @@
 </div>
     <!-- Now showing movie -->
 <div class="container">
+    <hr>
     <h3 class="text-center">Now Showing</h3>
     <div>
         {{ macro.displayMovieList(now_showing)}}
