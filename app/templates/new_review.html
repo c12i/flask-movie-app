@@ -3,11 +3,12 @@
 
 {% block content %}
     <div class="container">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <img src="{{movie.poster}}" alt="{{movie.title}}" class="img-responsive">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             {{ wtf.quick_form(review_form) }}
+            {{ simplemde.load }}
         </div>
     </div>
 {% endblock %}
