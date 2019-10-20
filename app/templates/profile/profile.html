@@ -7,6 +7,8 @@
             <h3>{{user.username | capitalize}}</h3>
 
             {%if user.bio%}
+                <hr>
+                <p><strong>Bio:</strong></p>
                 <p>{{user.bio}}</p>
             {%else%}
                 <p>{{user.username | capitalize}} has no bio</p>
@@ -20,7 +22,9 @@
             {%else%}
                 <p>No profile picture</p>
             {%endif%}
+        </div>
 
+        <div class="col-md-4">
             {%if user == current_user%}
                 <a class="btn btn-info" href="{{url_for('main.update_profile', uname = user.username)}}"
                 style="margin-bottom: 7px;">Edit Profile</a>
