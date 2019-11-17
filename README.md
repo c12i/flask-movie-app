@@ -28,19 +28,19 @@ Here is a run through of how to set up the application:
 * **Step 2** : The repository, if downloaded as a .zip file will need to be extracted to your preferred location and opened
 * **Step 3** : Go to the project root directory and install the virtualenv library using pip an afterwards create a virtual environment. Run the following commands respectively:
     * **`pip install virtualenv`**
-    * **`virtualenv venv`**
-    * **`source venv/bin/activate`**
+    * **`virtualenv virtual`**
+    * **`source virtual/bin/activate`**
         * Note that you can exit the virtual environment by running the command **`deactivate`**
-* **Step 4** : Download the all dependencies in the requirements.txt using **`pip install <name>`**
+* **Step 4** : Download the all dependencies in the requirements.txt using **`pip install -r requirements.txt`**
 * **Step 5** : Go to the [the movie database (TMDB) API](https://www.themoviedb.org/) WEBSITE, sign up for a free account and generate an API key. 
-    * Create a file in your root directory called start.sh and store the API key like so **`export API_KEY="<your-key>"`**
+    * Create a .sh (shell)file in your root directory called **start.sh** and store the API key like so **`export API_KEY="<your-key>"`**
     * On the same file write down the command **`python3 manage.py server`** 
-* **Step 6** : On your terminal, run the following command, **`chmod a+x start.sh`**
+* **Step 6** : On your terminal, run the following command, **`chmod +x start.sh`** to make the shell file executable
     * You can now launch the application locally by running the command **`./start.sh`** 
     * Open your preferred browser and view the app by opening the link **http://127.0.0.1:5000/**.
 
 ## Known Bugs
-* None present, in case of any, be sure to contact me
+* Inconsistent arragngement of movie thumbnails (styling bug)
 
 ## Technologies Used
 * Python 3.7.4
